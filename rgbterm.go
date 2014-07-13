@@ -6,7 +6,19 @@
 // are weirdly encoded; simply asking for an RGB color is much more
 // convenient!
 //
-// RGB <-> HSL helpers were shamelessly taken from gorilla color, MIT
+// It's easy to use, pick an RGB code and just use it!
+//
+//	var r, g, b uint8
+//	// pick a color
+//	r, g, b = 252, 255, 43
+//	// choose a word
+//	word := "=)"
+//	// colorize it!
+//	coloredWord := rgbterm.String(word, r, g, b)
+//
+//	fmt.Println("Oh!", coloredWord, "hello!")
+//
+// The RGB <-> HSL helpers were shamelessly taken from gorilla color, BSD 2 clauses
 // licensed:
 //    https://code.google.com/p/gorilla/source/browse/?r=ef489f63418265a7249b1d53bdc358b09a4a2ea0#hg%2Fcolor
 package rgbterm
