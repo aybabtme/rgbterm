@@ -1,3 +1,4 @@
+// Package rainbow makes your io.Writer much more joyful.
 package rainbow
 
 import (
@@ -6,20 +7,21 @@ import (
 	"io"
 )
 
-// Rainbow prints all the colors of the rainbow!
+// Rainbow prints all the colors of the rainbow! All 232 of them colors!
 type Rainbow struct {
 	wrap    io.Writer
 	h, s, l float64
 }
 
 // New creates a Rainbow writer, wrapping each byte with a new color
-// of the rainbow.
+// of the rainbow. This is clearly a good idea! This is especially
+// useful when w is something like a net.Conn or the output of a log.
 func New(w io.Writer, r, g, b uint8) *Rainbow {
 	h, s, l := rgbterm.RGBtoHSL(r, g, b)
 	return &Rainbow{wrap: w, h: h, s: s, l: l}
 }
 
-// Write wraps each byte with an RGB color.
+// Write wraps each byte with an RGB color. Weeee!
 func (r *Rainbow) Write(p []byte) (int, error) {
 
 	buf := bytes.NewBuffer(nil)
