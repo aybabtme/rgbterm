@@ -22,6 +22,6 @@ fmt.Println("Oh!", coloredWord, "hello!")
 
 > ![screen shot 2014-07-13 at 0 56 44](https://cloud.githubusercontent.com/assets/1189716/3563695/54e7f048-0a4a-11e4-8b53-613761c6c4e2.png)
 
-Also, to be correct: there are 216 colors. For more details, [Xterm][xterm-wiki].
+Also, to be correct: there are 216 colors and 16 grey scales. For more details, [Xterm][xterm-wiki].
 
 [xterm-wiki]: https://en.wikipedia.org/wiki/Xterm
