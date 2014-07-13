@@ -4,7 +4,7 @@ import (
 	"math"
 )
 
-// stolen from gorilla color, MIT licensed:
+// stolen from gorilla color:
 //    https://code.google.com/p/gorilla/source/browse/?r=ef489f63418265a7249b1d53bdc358b09a4a2ea0#hg%2Fcolor
 
 // RGBtoHSL is a helper that transforms 8bits HSL colors to
