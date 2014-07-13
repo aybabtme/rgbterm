@@ -14,7 +14,7 @@ log.SetOutput(joyfulOutput)
 
 Wee, much happier coworkers!
 
-![rainbow-demo](https://cloud.githubusercontent.com/assets/1189716/3563704/f5cdc1ee-0a4b-11e4-845f-fd8003ac7316.gif)
+![rainbow-demo](https://cloud.githubusercontent.com/assets/1189716/3563716/3dbd46ea-0a4d-11e4-8c6c-948d9925d0dd.gif)
 
 # Caveats
 
