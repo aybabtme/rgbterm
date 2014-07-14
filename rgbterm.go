@@ -33,7 +33,7 @@ var (
 // the closest the RGB color.
 //
 // This is simply a helper for Bytes.
-func String(in string, r, b, g uint8) string {
+func String(in string, r, g, b uint8) string {
 	return string(Bytes([]byte(in), r, g, b))
 }
 
@@ -41,7 +41,7 @@ func String(in string, r, b, g uint8) string {
 // that matches the closest the RGB color.
 //
 // This is simply a helper for Bytes.
-func BgString(in string, r, b, g uint8) string {
+func BgString(in string, r, g, b uint8) string {
 	return string(BgBytes([]byte(in), r, g, b))
 }
 
