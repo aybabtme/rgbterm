@@ -33,7 +33,7 @@ func (r *Rainbow) Write(p []byte) (int, error) {
 
 		r, g, b := rgbterm.HSLtoRGB(r.h, r.s, r.l)
 		if p[i] != '\n' {
-			_, _ = buf.Write(rgbterm.Bytes([]byte{p[i]}, r, g, b, g, b, r))
+			_, _ = buf.Write(rgbterm.FgByte(p[i], r, g, b))
 		} else {
 			buf.Write([]byte{p[i]})
 		}
