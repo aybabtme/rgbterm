@@ -64,7 +64,7 @@ func Bytes(in []byte, fr, fg, fb, br, bg, bb uint8) []byte {
 // Bytes colorizes the foreground with the terminal color that matches
 // the closest the RGB color.
 func FgBytes(in []byte, r, g, b uint8) []byte {
-	return colorize(color(r, g, b, false), in)
+	return colorize(color(r, g, b, true), in)
 }
 
 // BgBytes colorizes the background of the input with the terminal color
