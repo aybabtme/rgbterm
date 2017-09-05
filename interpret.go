@@ -23,6 +23,8 @@ var MaxEscapeCodeLen uint = 15
 func interpret(r io.ByteReader, w io.Writer, subst func(s string) []byte) error {
 	inEscape := false
 	escape := &bytes.Buffer{}
+	out := bufio.NewWriter(w)
+	defer out.Flush()
 
 	for {
 		c, err := r.ReadByte()
@@ -35,19 +37,19 @@ func interpret(r io.ByteReader, w io.Writer, subst func(s string) []byte) error 
 			if rune(c) == '{' && escape.Len() == 0 {
 				// False alarm: this was the sequence {{ which means the user wanted to
 				// output {.
-				_, err = w.Write([]byte("{"))
+				_, err = out.Write([]byte("{"))
 				escape.Reset()
 				inEscape = false
 			} else if rune(c) == '}' {
-				_, err = w.Write(subst(escape.String()))
+				_, err = out.Write(subst(escape.String()))
 				escape.Reset()
 				inEscape = false
 			} else {
 				escape.WriteByte(c)
 				if MaxEscapeCodeLen > 0 && uint(escape.Len()) > MaxEscapeCodeLen {
 					// Escape code too long
-					w.Write([]byte("{"))
-					_, err = w.Write(escape.Bytes())
+					out.Write([]byte("{"))
+					_, err = out.Write(escape.Bytes())
 					inEscape = false
 				}
 			}
@@ -55,7 +57,7 @@ func interpret(r io.ByteReader, w io.Writer, subst func(s string) []byte) error 
 			if rune(c) == '{' {
 				inEscape = true
 			} else {
-				_, err = w.Write([]byte{c})
+				_, err = out.Write([]byte{c})
 			}
 		}
 
